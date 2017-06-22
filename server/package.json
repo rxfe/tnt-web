@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "tnt-web-server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "project",
+    "manage"
+  ],
+  "author": "lanmingming@meituan.com",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.3.0",
+    "koa-body": "^2.1.0",
+    "koa-cors": "0.0.16",
+    "koa-router": "^7.2.1",
+    "koa-static": "^3.0.0"
+  }
+}
