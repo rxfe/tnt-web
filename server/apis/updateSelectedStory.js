@@ -2,14 +2,14 @@
  * @file fetch storys
  */
 
-const { updateSelectedStory } = require('../models')
+const { updateSelectedStorys } = require('../models')
 
 module.exports = function () {
     let body = this.request.body
-    updateSelectedStory()
-    this.body = {
-        errorno: 0,
-        status: 0,
-        storys: storyList
-    }
+    console.log(JSON.stringify(body, null, 2))
+    let res = updateSelectedStorys(body)
+    console.log('---------------')
+    console.log(res)
+
+    this.body = updateSelectedStorys(body)
 }

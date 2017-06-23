@@ -15,7 +15,6 @@ module.exports = function * (next) {
   if (url === '/createStorys') {
     //console.log(this.request.body)
     createStorys.call(this)
-    
   }
 
   if (url === '/fetchStorys') {

@@ -12,5 +12,6 @@ const updateSelectedStorys = require('./updateSelectedStory')
 module.exports = {
   createStorys,
   fetchStorys,
-  createSelectedStorys
+  createSelectedStorys,
+  updateSelectedStorys
 }
