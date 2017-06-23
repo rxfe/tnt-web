@@ -23,8 +23,6 @@ export default {
 
 <style lang="scss" scoped>
 .seq-chart, .float-chart {
-  border-left: 2px #ddd solid;
-  border-right: 2px #ddd solid;
   width: 600px;
   height: 60px;
   margin: auto;

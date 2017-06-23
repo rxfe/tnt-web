@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="personal-wrapper">
     <StoryChart
       :storyData="demoStory"
     >
@@ -32,4 +32,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.personal-wrapper {
+  width: 600px;
+  margin: auto;
+  border-left: 2px #999 dashed;
+  border-right: 2px #999 dashed;
+}
 </style>
