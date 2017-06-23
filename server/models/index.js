@@ -4,8 +4,13 @@
  * @date
  */
 
-const demo = require('./demo')
+const createStorys = require('./createStorys')
+const fetchStorys = require('./fetchStorys')
+const createSelectedStorys = require('./createSelectedStory')
+const updateSelectedStorys = require('./updateSelectedStory')
 
 module.exports = {
-  demo
+  createStorys,
+  fetchStorys,
+  createSelectedStorys
 }

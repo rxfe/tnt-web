@@ -1,28 +1,44 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+    <div v-if="currentRoute == '/'">
+      <Home></Home>
+    </div>
+    <div v-if="currentRoute == '/create'">
+      <CreateStory></CreateStory>
+    </div>
+    <div v-if="currentRoute == '/list'">
+      <StoryList></StoryList>
+    </div>
+    <div v-if="currentRoute == '/chart'">
+      <Chart></Chart>
+    </div>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import Home from './components/Home'
+import CreateStory from './components/CreateStory'
+import StoryList from './components/StoryList'
+import Chart from './components/Chart'
+
 
 export default {
   name: 'app',
+  data () {
+    return {
+      currentRoute: window.location.pathname
+    }
+  },
+
   components: {
-    Hello
+    Home,
+    CreateStory,
+    StoryList,
+    Chart
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
