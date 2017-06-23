@@ -8,10 +8,12 @@ const createStorys = require('./createStorys')
 const fetchStorys = require('./fetchStorys')
 const createSelectedStorys = require('./createSelectedStory')
 const updateSelectedStorys = require('./updateSelectedStory')
+const getStory = require('./getStory')
 
 module.exports = {
   createStorys,
   fetchStorys,
   createSelectedStorys,
-  updateSelectedStorys
+  updateSelectedStorys,
+  getStory
 }

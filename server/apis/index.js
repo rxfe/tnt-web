@@ -8,24 +8,41 @@ const createStorys = require('./createStorys')
 const fetchStorys = require('./fetchStorys')
 const createSelectedStorys = require('./createSelectedStory')
 const updateSelectedStorys = require('./updateSelectedStory')
+const getPersonalStory = require('./getPersonalStory')
 
 module.exports = function * (next) {
-  let url = this.req.url
-
-  if (url === '/createStorys') {
+  let path = this.path
+  console.log('-----------')
+  console.log(path)
+  console.log('-----------')
+  // pm create story
+  if (path === '/createStorys') {
     //console.log(this.request.body)
     createStorys.call(this)
   }
 
-  if (url === '/fetchStorys') {
+  // rd get story list
+  if (path === '/fetchStorys') {
     fetchStorys.call(this)
   }
 
-  if (url === '/createSelectedStorys') {
+  // rd select story
+  if (path === '/createSelectedStorys') {
     createSelectedStorys.call(this)
   }
 
-  if (url === '/updateSelectedStory') {
+  // rd sync mrd story
+  if (path === '/syncStory') {
     updateSelectedStorys.call(this)
+  }
+
+  // chart personal story
+  if (path === '/getPersonalStory') {
+    getPersonalStory.call(this)
+  }
+
+  // chart total stories
+  if (path == '/getGroupStorys') {
+    
   }
 }
