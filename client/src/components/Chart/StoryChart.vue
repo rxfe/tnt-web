@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  props: ['storyData'],
+  props: ['storyData', 'totalHours', 'startTime'],
   name: 'StoryChart',
   computed: {
 

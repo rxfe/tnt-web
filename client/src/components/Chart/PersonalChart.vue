@@ -1,7 +1,11 @@
 <template>
   <div class="personal-wrapper">
     <StoryChart
-      :storyData="demoStory"
+      v-for="(story, i) in storys"
+      :key="i"
+      :storyData="story"
+      :totalHours="chartData.meta.totalHours"
+      :startTime="chartData.meta.startTime"
     >
     </StoryChart>
   </div>
@@ -23,6 +27,25 @@ export default {
         ...targetStory,
         date: this.chartData.meta.storys[0].date
       }
+    },
+    storys () {
+      const metaStorys = this.chartData.meta.storys.map(
+        (metaStory) => {
+          const inputStory = this.chartData.storys.find(
+            s => s.text === metaStory.text
+          )
+          if (!inputStory) return null
+          else {
+            const demo = {
+              ...metaStory,
+              ...inputStory
+            }
+            console.log(123)
+            return demo
+          }
+        }
+      ).filter(s => !!s)
+      return metaStorys
     }
   },
   components: {
