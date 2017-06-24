@@ -8,6 +8,11 @@
       <input type="radio" id="chart-p" value="p" v-model="type">
       <label for="chart-p">悲观估时</label>
     </div>
+    <div class="timeline">
+      <span>2017-06-23</span>
+      <span>2017-06-25</span>
+    </div>
+    <hr>
     <StoryChart
       v-for="(story, i) in storys"
       :key="i"
@@ -84,5 +89,16 @@ export default {
   padding-left: 5px;
   color: #666;
   font-size: 12px;
+}
+.timeline {
+  display: flex;
+  margin-top: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  justify-content: space-between;
+  & > span {
+    font-size: 12px;
+    color: #999;
+  }
 }
 </style>

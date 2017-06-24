@@ -10,23 +10,29 @@
     >
       <div
         class="task"
+        :title="t.text"
         v-for="(t, i) in seqTasks"
         :key="i"
         :style="{
+          background: getTaskBackground(t.status),
           width: getTotalHours(t.timing) * widthPerHour + 'px'
         }"
       >
+        {{t.text[0]}}
       </div>
     </div>
     <div class="float-chart" :style="{width: totalWidth + 'px'}">
       <div
         class="task"
+        :title="t.text"
         v-for="(t, i) in floatTasks"
         :key="i"
         :style="{
+          background: getTaskBackground(t.status),
           width: getTotalHours(t.timing) * widthPerHour + 'px'
         }"
       >
+        {{t.text[0]}}
       </div>
     </div>
   </div>
@@ -101,6 +107,14 @@ export default {
           return h(hours[2])
         }
       }
+    },
+    getTaskBackground (status) {
+      const mapping = {
+        pending: 'linear-gradient(0, #ddd, #eee)',
+        done: 'linear-gradient(0, #90ee90, #c3ffc3)',
+        active: 'linear-gradient(0, #add8e6, #e8f4f8)'
+      }
+      return mapping[status]
     }
   }
 }
@@ -124,12 +138,21 @@ export default {
   height: 35px;
   background: linear-gradient(0, lightblue, lighten(lightblue, 15%));
   border-radius: 5px;
-  border-right: 2px lightcoral dashed;
+  border-right: 2px rgba(0, 0, 0, .3) dashed;
   transition: all .2s ease;
+
+  font-size: 12px;
+  overflow-x: hidden;
+  color: #666;
+  line-height: 35px;
+  text-align: center;
+  padding: 0 5px;
+  vertical-align: middle;
+  cursor: default;
 }
 span {
   margin-left: 5px;
-  color: cadetblue;
-  font-size: 14px;
+  color: #666;
+  font-size: 12px;
 }
 </style>

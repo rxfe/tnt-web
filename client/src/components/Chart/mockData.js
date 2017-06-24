@@ -70,7 +70,7 @@ export default {
       'progress': null,
       'tasks': [
         {
-          'status': 'pending',
+          'status': 'done',
           'timing': [
             '5h'
           ],
