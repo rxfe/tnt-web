@@ -91,16 +91,15 @@ const computePersonalTime = function(storyModel) {
 const computeGroupTime = function (storysGroup) {
 
     return storysGroup.reduce((acc, item) => {
-        let meta = item.meta
-        let baseDate = new Date(meta.baseTime)
-        let totalHours = meta.totalHours
+        
+        let { baseTime, totalHours } = computePersonalTime(item)
+        let baseDate = new Date(baseTime)
 
         let duringDay = Math.ceil(totalHours / DADY_HOURS_RATE)
 
         baseDate.setDate(baseDate.getDate() + duringDay)
 
         let endTime = baseDate.getTime()
-        let baseTime = meta.baseTime
 
         if (endTime > acc.endTime) {
             acc.endTime = endTime

@@ -1,7 +1,7 @@
 export default {
   'errno': 0,
-  'baseTime': new Date(1498233600000),
-  'endTime': new Date(1499356800000),
+  'baseTime': 1498233600000,
+  'endTime': 1499356800000,
   'data': [
     {
       'meta': {
@@ -92,6 +92,7 @@ export default {
         'version': '1.0.0',
         'author': 'lanmingming',
         'baseTime': 1498406400000,
+        'totalHours': 90,
         'storys': [
           {
             'text': 'v2',
