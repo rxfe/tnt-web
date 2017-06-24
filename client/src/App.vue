@@ -19,8 +19,7 @@
 import Home from './components/Home'
 import CreateStory from './components/CreateStory'
 import StoryList from './components/StoryList'
-import Chart from './components/Chart'
-
+import Chart from './components/Chart/Main'
 
 export default {
   name: 'app',
@@ -29,7 +28,6 @@ export default {
       currentRoute: window.location.pathname
     }
   },
-
   components: {
     Home,
     CreateStory,
