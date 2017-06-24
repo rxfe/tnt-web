@@ -10,10 +10,15 @@ let isMatch = (model, matchs) => {
     )
 }
 
-let findStorysByKeys = (models, matchs) => {
+let findStoryByKeys = (models, matchs) => {
 
     return models.find(item => isMatch(item.meta, matchs))
 }
+
+let filterStorysByKeys = (models, matchs) => {
+    return models.filter(item => isMatch(item.meta, matchs))
+}
+
 
 let matchStorys = (updateList = [], currList = []) => {
     if (updateList.length !== currList.length) {
@@ -26,6 +31,7 @@ let matchStorys = (updateList = [], currList = []) => {
 }
 
 module.exports = {
-    findStorysByKeys,
-    matchStorys
+    findStoryByKeys,
+    matchStorys,
+    filterStorysByKeys
 }

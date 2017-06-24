@@ -1,11 +1,11 @@
 /**
- * @file get story
+ * @file filter
  */
 const path = require('path')
 const jsonfile = require('jsonfile')
 const DATAPATH = path.join(__dirname, '../data/selectedStoryList.md')
 
-const { findStoryByKeys } = require('./utils')
+const { filterStorysByKeys } = require('./utils')
 
 module.exports = (keys) => {
     
@@ -13,5 +13,5 @@ module.exports = (keys) => {
     
     let allStorys = storyModel.allStorys
 
-    return findStoryByKeys(allStorys, keys)
+    return filterStorysByKeys(allStorys, keys)
 }

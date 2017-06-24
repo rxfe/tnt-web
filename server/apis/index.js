@@ -9,12 +9,13 @@ const fetchStorys = require('./fetchStorys')
 const createSelectedStorys = require('./createSelectedStory')
 const updateSelectedStorys = require('./updateSelectedStory')
 const getPersonalStory = require('./getPersonalStory')
+const getGroupStorys = require('./getGroupStorys')
 
 module.exports = function * (next) {
   let path = this.path
-  console.log('-----------')
+  console.log('---------------------')
   console.log(path)
-  console.log('-----------')
+  console.log('---------------------')
   // pm create story
   if (path === '/createStorys') {
     //console.log(this.request.body)
@@ -43,6 +44,6 @@ module.exports = function * (next) {
 
   // chart total stories
   if (path == '/getGroupStorys') {
-    
+    getGroupStorys.call(this)
   }
 }

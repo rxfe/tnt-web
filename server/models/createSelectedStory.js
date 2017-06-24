@@ -8,7 +8,7 @@ const path = require('path')
 const jsonfile = require('jsonfile')
 const DATAPATH = path.join(__dirname, '../data/selectedStoryList.md')
 
-const { findStorysByKeys } = require('./utils')
+const { findStoryByKeys } = require('./utils')
 
 module.exports = (model) => {
 
@@ -38,7 +38,7 @@ module.exports = (model) => {
     }
     let allStorys = storysModel.allStorys
 
-    let matchStory = findStorysByKeys(allStorys, matchs)
+    let matchStory = findStoryByKeys(allStorys, matchs)
 
     if (matchStory) {
         matchStory.storys = model.storys

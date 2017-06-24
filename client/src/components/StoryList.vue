@@ -10,6 +10,12 @@
           </li>
         </ul>
       </div>
+
+      <select v-model="author">
+        <option v-for="author in authorList" v-bind:value="author">
+          {{ author }}
+        </option>
+      </select>
     <button class="save" @click="save">确认</button>
 
     </div>
@@ -25,7 +31,12 @@ export default {
       projectName: '',
       version: '',
       storyList: [],
-      selectedIds: []
+      selectedIds: [],
+      authorList: [
+        'wangyifeng03',
+        'lanmingming'
+      ],
+      author: 'wangyifeng03'
     }
   },
 
@@ -53,10 +64,10 @@ export default {
       let selectedStoryList = this.storyList.filter(
         item => this.selectedIds.indexOf(item.id) > -1
       )
-      let { projectName, version } = this;
+      let { projectName, version, author } = this;
 
       let bodyParams = {
-        author: 'wangyifeng03',
+        author,
         projectName,
         version,
         storys: selectedStoryList
