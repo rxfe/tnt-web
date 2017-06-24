@@ -3,9 +3,12 @@
     <StoryChart
       v-for="(story, i) in storys"
       :key="i"
-      :storyData="story"
+      :date="story.date"
+      :progress="story.progress"
+      :tasks="story.tasks"
+      :text="story.text"
       :totalHours="chartData.meta.totalHours"
-      :startTime="chartData.meta.startTime"
+      :baseTime="chartData.meta.baseTime"
     >
     </StoryChart>
   </div>
@@ -40,7 +43,6 @@ export default {
               ...metaStory,
               ...inputStory
             }
-            console.log(123)
             return demo
           }
         }

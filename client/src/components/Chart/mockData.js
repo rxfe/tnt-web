@@ -3,8 +3,8 @@ export default {
     'project': 'X',
     'version': 1.1,
     'author': 'wangyifeng03',
-    'totalHours': 24,
-    'startTime': new Date('2017-06-23'),
+    'totalHours': 32,
+    'baseTime': new Date('2017-06-23'),
     'storys': [
       {
         'text': '优化着陆页体验',
