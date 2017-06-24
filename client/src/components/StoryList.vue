@@ -6,7 +6,7 @@
         <ul class="list">
           <li class="item" v-for="item in storyList">
             <span>{{item.text}}</span>
-            <span><input v-bind:value="item.id" type="checkbox" v-model="selectedIds"></span>
+            <span class="check-data"><input v-bind:value="item.id" type="checkbox" v-model="selectedIds"></span>
           </li>
         </ul>
       </div>
@@ -90,5 +90,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .storys-wrapper {
+    width: 600px;
+    margin: 50px auto;
+
+    .story-list {
+      .list {
+        margin-bottom: 30px;
+
+        .item {
+          padding: 6px 0;
+          .check-data {
+            float: right
+          }
+        }
+      }
+    }
+    .save {
+      width: 60px;
+      height: 28px;
+      float: right;
+    }
+  }
 
 </style>

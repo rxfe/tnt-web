@@ -5,6 +5,7 @@
       <span>2017-06-23</span>
       <span>2017-06-25</span>
     </div>
+    <hr>
     <div class="group-item"
       v-for="item in group"
       :style="{width: item.width + 'px', marginLeft: item.offset + 'px'}">

@@ -1,1 +1,1 @@
-{"projectName":"TNT","version":"1.0.0","storyList":[{"text":"优化着陆页体验","id":1},{"text":"评论支持富文本","id":2}]}
+{"projectName":"TNT","version":"1.0.0","storyList":[{"text":"编写todolist","id":1},{"text":"哈哈哈","id":2},{"text":"hello","id":3}]}
