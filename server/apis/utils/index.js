@@ -39,6 +39,17 @@ const timeToHours = function (eTime, sTime) {
     return days * DADY_HOURS_RATE
 }
 
+const getMaxEndTime = function(list = []) {
+    return list.reduce((acc, item) => {
+        let endDate = new Date(item[1])
+        let eTime = endDate.getTime()
+        if (eTime > acc) {
+            acc = eTime
+        }
+        return acc
+    }, 0)
+}
+
 const computePersonalTime = function(storyModel) {
     let meta = storyModel.meta
     let storys = storyModel.storys
@@ -63,19 +74,15 @@ const computePersonalTime = function(storyModel) {
     let hasAuto = dateList.some(date => !date[1])
     let totalHours = 0
     if (hasAuto) {
-        // 取task里的的timing来进行估算
-        totalHours = getMaxHours(storys)
+        // 取task里的的timing来进行估算, 然后和非auto的story进行比较，取大的
+        let notAutoDateList = dateList.filter(date => date[1])
+        let maxTime = getMaxEndTime(notAutoDateList)
+        totalHours = Math.max(getMaxHours(storys), timeToHours(maxTime, baseTime))
     }
     else {
         // 最大值减去最小值
-        let maxTime = dateList.reduce((acc, item) => {
-            let endDate = new Date(item[1])
-            let eTime = endDate.getTime()
-            if (eTime > acc) {
-                acc = eTime
-            }
-            return acc
-        }, 0)
+
+        let maxTime = getMaxEndTime(dateList)
 
         totalHours = timeToHours(maxTime, baseTime)
     }

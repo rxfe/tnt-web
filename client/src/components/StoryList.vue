@@ -83,6 +83,9 @@ export default {
       .then(
         res => res.json()
       )
+      .then(
+        () => alert('保存成功')
+      )
     }
   }
 
