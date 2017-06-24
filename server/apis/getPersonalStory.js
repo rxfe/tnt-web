@@ -2,9 +2,12 @@
  * @file personal story for chart
  */
 
-let { getStory } = require('../models')
+const { getStory } = require('../models')
 
-let querystring = require('querystring')
+const querystring = require('querystring')
+
+const { computePersonalTime } = require('./utils')
+
 
 module.exports = function () {
 
@@ -19,6 +22,11 @@ module.exports = function () {
     let story = getStory({ author, project, version })
 
     if (story) {
+        let { baseTime, totalHours } = computePersonalTime(story)
+        story.meta = Object.assign(story.meta, {
+            baseTime,
+            totalHours
+        })
         this.body = {
             error: 0,
             data: story

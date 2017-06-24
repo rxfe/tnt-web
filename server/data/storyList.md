@@ -1,1 +1,1 @@
-{"projectName":"TNT","version":"1.0.0","storyList":[{"text":"v1","id":1},{"text":"v2","id":2},{"text":"v3","id":3},{"text":"v4","id":4}]}
+{"projectName":"TNT","version":"1.0.0","storyList":[{"text":"优化着陆页体验","id":1},{"text":"评论支持富文本","id":2}]}
