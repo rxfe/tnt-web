@@ -19,6 +19,7 @@ import PersonalChart from './PersonalChart'
 import GroupChart from './GroupChart'
 import mockData from './mockData'
 import groupMockData from './groupMockData'
+import API from '../../config/api'
 
 export default {
   name: 'Chart',
@@ -29,7 +30,26 @@ export default {
     }
   },
   methods: {
-
+    fetchPersonalStory() {
+      let params = {
+        author: 'wangyifeng03',
+        project: 'TNT',
+        version: '1.0.0'
+      }
+      return fetch(API.fetchPersonalStory + '?author=wangyifeng03&project=TNT&version=1.0.0')
+        .then(
+          res => res.json()
+        )
+    }
+  },
+  mounted() {
+    this
+      .fetchPersonalStory()
+      .then(
+        res => {
+          this.chartData = res.data
+        }
+      )
   },
   components: {
     GroupChart,
