@@ -1,8 +1,18 @@
 <template>
-  <div class="personal-wrapper">
+  <div class="personal-wrapper" :style="{width: 600 + 'px'}">
+    <div class="radio-wrapper">
+      <input type="radio" id="chart-o" value="o" v-model="type">
+      <label for="chart-o">乐观估时</label>
+      <input type="radio" id="chart-m" value="m" v-model="type">
+      <label for="chart-m">预期估时</label>
+      <input type="radio" id="chart-p" value="p" v-model="type">
+      <label for="chart-p">悲观估时</label>
+    </div>
     <StoryChart
       v-for="(story, i) in storys"
       :key="i"
+      :type="type"
+      :totalWidth="600"
       :date="story.date"
       :progress="story.progress"
       :tasks="story.tasks"
@@ -20,6 +30,12 @@ import StoryChart from './StoryChart'
 export default {
   props: ['chartData'],
   name: 'PersonalChart',
+  data () {
+    return {
+      // o m p
+      type: 'm'
+    }
+  },
   computed: {
     demoStory () {
       const storyName = this.chartData.meta.storys[0].text
@@ -62,5 +78,11 @@ export default {
   margin: auto;
   border-left: 2px #999 dashed;
   border-right: 2px #999 dashed;
+}
+.radio-wrapper {
+  margin: 10px auto;
+  padding-left: 5px;
+  color: #666;
+  font-size: 12px;
 }
 </style>
